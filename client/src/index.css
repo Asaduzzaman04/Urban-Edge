@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+/* Montserrat */
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/font/Montserrat/static/Montserrat-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/font/Montserrat/static/Montserrat-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/font/Montserrat/static/Montserrat-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Open Sans */
+@font-face {
+  font-family: 'Open Sans';
+  src: url('./assets/font/OpenSans/static/OpenSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('./assets/font/OpenSans/static/OpenSans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('./assets/font/OpenSans/static/OpenSans-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@theme {
+  --font-Montserrat: 'Montserrat', sans-serif;
+  --font-OpenSans: 'Open Sans', sans-serif;
+  /* Color Variables */
+  --color-primary: #F87171;
+  --color-primary-hover: #EF4444;
+  --color-secondary: #FB7185;
+  --color-secondary-hover: #F43F5E;
+  --color-success: #34D399;
+  --color-success-hover: #10B981;
+  --color-warning: #F43F5E;
+  --color-warning-hover: #F43F5E;
+
+  /* Backgrounds */
+
+  --color-background: #F9F5F5;
+  /* very light rose background */
+  --color-background-dark: #7F1D1D;
+  /* deep dark red for dark mode cards */
+  --color-card-bg: #FFFFFF;
+
+  /* Borders */
+  --color-border: #FCDADA;
+  /* light rose border */
+  /* Text */
+  --color-text-primary: #000000;
+  /* deep red text */
+  --color-text-secondary: #B91C1C;
+  /* vivid red */
+  --color-text-inverted: #FFFFFF;
+
+  /* Accent */
+  --color-accent: #c7c5c5;
+  --color-accent-hover: #E2E2E2;
+
+}
