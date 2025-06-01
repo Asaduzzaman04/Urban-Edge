@@ -21,7 +21,7 @@ const Headers = () => {
   }));
 
   return (
-    <header className=" w-full  text-sm fixed top-0 left-0 z-50">
+    <header className=" w-full  text-sm  top-0 left-0 z-50">
       {/* Top Discount Bar */}
       <div className="px-4 md:px-[5%] lg:px-[8%] xl:px-[9%] py-2 flex flex-col md:flex-row justify-between items-center bg-background-dark text-text-inverted">
         <div className="text-center md:text-start mb-2 md:mb-0">
@@ -106,6 +106,7 @@ const Headers = () => {
           </div>
         </motion.div>
       </div>
+     
     </header>
   );
 };

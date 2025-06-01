@@ -1,7 +1,11 @@
 import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
+  typography : {
+    fontFamily: "'Montserrat', 'Open Sans', sans-serif",
+  },
   palette: {
+  
     mode: "light",
     primary: {
       main: "#F87171",

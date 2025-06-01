@@ -1,17 +1,21 @@
-import React from 'react'
-import { Outlet } from 'react-router'
-import Headers from '../components/headers/Headers'
+import React from "react";
+import { Outlet } from "react-router";
+import Headers from "../components/headers/Headers";
+import Navbar from "../components/headers/Navigation/Navbar";
 
 const Root = () => {
   return (
     <div
-      className="min-h-screen flex flex-col items-center justify-start py-4  bg-background
-         font-Montserrat border"
+      className="min-h-screen flex flex-col items-center justify-start  bg-background
+         font-Montserrat "
     >
-      <Headers />
+      <section className="fixed top-0 left-0 w-full z-50 bg-white">
+        <Headers />
+        <Navbar />
+      </section>
       <Outlet />
     </div>
-  )
-}
+  );
+};
 
-export default Root
+export default Root;
