@@ -1,44 +1,51 @@
 import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
-
   palette: {
-  
     mode: "light",
+
     primary: {
-      main: "#F87171",
-      dark: "#EF4444",
+      main: "#000000",
+      dark: "#1a1a1a",
       contrastText: "#FFFFFF",
     },
+
     secondary: {
-      main: "#FB7185",
-      dark: "#F43F5E",
+      main: "#333333",
+      dark: "#4d4d4d",
       contrastText: "#FFFFFF",
     },
+
     success: {
-      main: "#34D399",
-      dark: "#10B981",
+      main: "#2ecc71",
+      dark: "#27ae60",
       contrastText: "#FFFFFF",
     },
+
     warning: {
-      main: "#F43F5E",
-      dark: "#F43F5E",
+      main: "#e74c3c",
+      dark: "#c0392b",
       contrastText: "#FFFFFF",
     },
+
     background: {
-      default: "#F9F5F5",
+      default: "#F7F7F7",
       paper: "#FFFFFF",
     },
+
     text: {
       primary: "#000000",
-      secondary: "#E2E2E2",
+      secondary: "#4D4D4D",
     },
-    divider: "#FCDADA",
+
+    divider: "#DDDDDD",
+
     accent: {
-      main: "#c7c5c5",
-      hover: "#E2E2E2",
+      main: "#AAAAAA",
+      hover: "#CCCCCC",
     },
   },
+
   typography: {
     fontFamily: "'Montserrat', 'Open Sans', sans-serif",
     h1: { fontFamily: "'Montserrat', sans-serif" },
@@ -50,6 +57,7 @@ const theme = createTheme({
     body1: { fontFamily: "'Open Sans', sans-serif" },
     body2: { fontFamily: "'Open Sans', sans-serif" },
   },
+
   components: {
     MuiButton: {
       styleOverrides: {

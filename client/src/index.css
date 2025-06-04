@@ -44,39 +44,35 @@
   font-style: italic;
 }
 
-@theme {
+  @theme {
   --font-Montserrat: 'Montserrat', sans-serif;
-  --font-OpenSans: 'Open Sans', sans-serif;
-  /* Color Variables */
-  --color-primary: #F87171;
-  --color-primary-hover: #EF4444;
-  --color-secondary: #FB7185;
-  --color-secondary-hover: #F43F5E;
-  --color-success: #34D399;
-  --color-success-hover: #10B981;
-  --color-warning: #F43F5E;
-  --color-warning-hover: #F43F5E;
+    --font-OpenSans: 'Open Sans', sans-serif;
 
-  /* Backgrounds */
+    /* Color Variables */
+    --color-primary: #000000;
+    --color-primary-hover: #1a1a1a;
+    --color-secondary: #333333;
+    --color-secondary-hover: #4d4d4d;
+    --color-success: #2ecc71;
+    --color-success-hover: #27ae60;
+    --color-warning: #e74c3c;
+    --color-warning-hover: #c0392b;
 
-  --color-background: #F9F5F5;
-  /* very light rose background */
-  --color-background-dark: #7F1D1D;
-  /* deep dark red for dark mode cards */
-  --color-card-bg: #FFFFFF;
+    /* Backgrounds */
+    --color-background: #F7F7F7;
+    --color-background-dark: #000000;
+    --color-card-bg: #F5F5F5;
 
-  /* Borders */
-  --color-border: #FCDADA;
-  /* light rose border */
-  /* Text */
-  --color-text-primary: #000000;
-  /* deep red text */
-  --color-text-secondary: #B91C1C;
-  /* vivid red */
-  --color-text-inverted: #FFFFFF;
+    /* Borders */
+    --color-border: #DDDDDD;
 
-  /* Accent */
-  --color-accent: #c7c5c5;
-  --color-accent-hover: #E2E2E2;
+    /* Text */
+    --color-text-primary: #000000;
+    --color-text-secondary: #4D4D4D;
+    --color-text-inverted: #FFFFFF;
 
-}
+    /* Accent */
+    --color-accent: #AAAAAA;
+    --color-accent-hover: #CCCCCC;
+  }
+
