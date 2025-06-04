@@ -1,12 +1,35 @@
-import React from 'react';
+import React from "react";
+import { HomeSlider } from "../components/home/HomeSlider";
+import ProductCategoryHome from "../components/home/ProductCategoryHome";
+import FreeShippingOffer from "../components/home/FreeShippingOffer";
+import ProuuctSuggestionBanner from "../components/home/ProuuctSuggestionBanner";
+import BigDealsBanners from "../components/home/BigDealsBanners";
 
 const Home = () => {
-    return (
-        <div>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id illum voluptates impedit obcaecati eaque, optio perferendis eligendi nulla maiores consequatur itaque debitis earum laborum rerum repellendus ea quo quam quaerat! 
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel minus molestiae voluptas rerum tempore nostrum facere autem earum quod cupiditate dicta saepe ratione ea, est commodi sit ipsum, nam magnam! lorem  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus quisquam atque corporis incidunt quasi sit eos eaque, magni eveniet? Fugit cupiditate rem necessitatibus consequuntur quisquam eius assumenda neque voluptatem tenetur?
-        </div>
-    );
+  return (
+    <main className="max-w-screen mx-auto px-4 md:px-6 lg:px-8">
+      {/* hero image slider*/}
+      <section className="  mt-3 h-auto rounded-xl ">
+        <HomeSlider />
+      </section>
+      {/* product category slider */}
+      <section>
+        <ProductCategoryHome />
+      </section>
+      {/* free shipping bar  */}
+      <section>
+        <FreeShippingOffer />
+      </section>
+
+      <section>
+        <BigDealsBanners />
+      </section>
+      {/* product banner  */}
+      <section>
+        <ProuuctSuggestionBanner />
+      </section>
+    </main>
+  );
 };
 
 export default Home;

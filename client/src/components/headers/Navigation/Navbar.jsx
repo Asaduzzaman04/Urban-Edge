@@ -1,17 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router";
+import { Button } from "@mui/material";
+import { motion, AnimatePresence } from "motion/react";
+import { FiChevronDown, FiTruck } from "react-icons/fi";
 import { GiLargeDress, GiSonicShoes, GiLipstick } from "react-icons/gi";
 import { MdSportsSoccer, MdOutlinePhoneIphone } from "react-icons/md";
-import { Menu, MenuItem } from "@mui/material";
-import {
-  FiTag,
-  FiBox,
-  FiWatch,
-  FiGift,
-  FiHeart,
-  FiTruck,
-  FiChevronDown,
-} from "react-icons/fi";
+import { FiTag, FiBox, FiWatch, FiGift, FiHeart } from "react-icons/fi";
 import CategoryPanel from "./CatrgoryPanel";
 
 const categories = [
@@ -69,23 +63,12 @@ const categories = [
 
 const Navbar = () => {
   const [isopenpanel, setOpenpanel] = useState(false);
-  const [anchorEl, setAnchorEl] = useState(null);
   const [activeCategory, setActiveCategory] = useState(null);
 
   const togglePanel = () => setOpenpanel((prev) => !prev);
 
-  const handleMenuOpen = (event, category) => {
-    setAnchorEl(event.currentTarget);
-    setActiveCategory(category);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-    setActiveCategory(null);
-  };
-
   return (
-    <nav className="flex items-center justify-between px-6 py-3 shadow-sm">
+    <nav className="flex items-center justify-between px-6 py-3 shadow-sm relative">
       {/* Left: Category Panel */}
       <CategoryPanel
         isopenpanel={isopenpanel}
@@ -94,57 +77,49 @@ const Navbar = () => {
       />
 
       {/* Middle: Categories */}
-      <div
-        className="hidden md:flex items-center gap-6"
-        onMouseLeave={handleMenuClose}
-      >
+      <div className="hidden md:flex items-center gap-4">
         {categories.map((category, index) => (
           <div
             key={index}
-            className="relative flex items-center gap-1 cursor-pointer group font-medium text-gray-700"
-            onMouseEnter={(e) => handleMenuOpen(e, category)}
+            className="relative"
+            onMouseEnter={() => setActiveCategory(category.name)}
+            onMouseLeave={() => setActiveCategory(null)}
           >
-            <span>{category.name}</span>
-            <FiChevronDown className="text-xs mt-[1px]" />
-
-            {/* SubMenu */}
-            <Menu
-              anchorEl={anchorEl}
-              open={activeCategory?.name === category.name}
-              onClose={handleMenuClose}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
+            <Button
+              endIcon={<FiChevronDown size={14} />}
+              variant="text"
+              sx={{
+                color: "#374151",
+                fontWeight: 600,
+                textTransform: "none",
+                "&:hover": { color: "#2563eb", backgroundColor: "transparent" },
               }}
             >
-              {category.subcategories.map((sub, idx) => (
-                <MenuItem
-                  key={idx}
-                  
-                  onMouseEnter={ ()=> setActiveCategory(sub)}
-                  sx={{
-                    "&:hover": {
-                      backgroundColor: "#f3f4f6",
-                      color: "#2563eb",
-                    },
-                    fontWeight: 500,
-                    fontSize: "20px",
-                  }}
+              {category.name}
+            </Button>
+
+            {/* Submenu */}
+            <AnimatePresence>
+              {activeCategory === category.name && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute top-10 left-0 bg-white shadow-lg   rounded-lg overflow-hidden z-50"
                 >
-                  <Link
-                    to={`/shop/${sub.toLowerCase().replace(/\s+/g, "-")}`}
-                    className="text-gray-800 w-full block"
-                    style={{ textDecoration: "none" }}
-                  >
-                    {sub}
-                  </Link>
-                </MenuItem>
-              ))}
-            </Menu>
+                  {category.subcategories.map((sub, idx) => (
+                    <Link
+                      key={idx}
+                      to={`/shop/${sub.toLowerCase().replace(/\s+/g, "-")}`}
+                      className="block px-4 py-2   hover:bg-gray-100 text-gray-700 font-medium"
+                    >
+                      {sub}
+                    </Link>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         ))}
       </div>

@@ -7,9 +7,9 @@ const Root = () => {
   return (
     <div
       className="min-h-screen flex flex-col items-center justify-start  bg-background
-         font-Montserrat "
+         font-Montserrat overflow-x-hidden "
     >
-      <section className="fixed top-0 left-0 w-full z-50 bg-white">
+      <section className=" top-0 left-0 w-full z-50 bg-white">
         <Headers />
         <Navbar />
       </section>
