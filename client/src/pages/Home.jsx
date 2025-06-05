@@ -4,6 +4,7 @@ import ProductCategoryHome from "../components/home/ProductCategoryHome";
 import FreeShippingOffer from "../components/home/FreeShippingOffer";
 import ProuuctSuggestionBanner from "../components/home/ProuuctSuggestionBanner";
 import BigDealsBanners from "../components/home/BigDealsBanners";
+import PopularProducts from "../components/home/PopularProducts";
 
 const Home = () => {
   return (
@@ -15,6 +16,10 @@ const Home = () => {
       {/* product category slider */}
       <section>
         <ProductCategoryHome />
+      </section>
+      {/* popular products  */}
+      <section>
+        <PopularProducts />
       </section>
       {/* free shipping bar  */}
       <section>

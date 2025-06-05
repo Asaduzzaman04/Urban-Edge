@@ -77,7 +77,7 @@ const Navbar = () => {
       />
 
       {/* Middle: Categories */}
-      <div className="hidden md:flex items-center gap-4">
+      <div className="hidden lg:flex items-center gap-4">
         {categories.map((category, index) => (
           <div
             key={index}
@@ -92,7 +92,7 @@ const Navbar = () => {
                 color: "#374151",
                 fontWeight: 600,
                 textTransform: "none",
-                "&:hover": { color: "#2563eb", backgroundColor: "transparent" },
+                "&:hover": { backgroundColor: "transparent" },
               }}
             >
               {category.name}
@@ -102,17 +102,17 @@ const Navbar = () => {
             <AnimatePresence>
               {activeCategory === category.name && (
                 <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
+                  initial={{ opacity: 0, y: 10, scale : 0 , }}
+                  animate={{ opacity: 1, y: 0, scale  : 1 }}
+                  exit={{ opacity: 0, y: -10 , }}
                   transition={{ duration: 0.2 }}
-                  className="absolute top-10 left-0 bg-white shadow-lg   rounded-lg overflow-hidden z-50"
+                  className="absolute top-10 left-0 w-sm flex flex-col lg:gap-2  bg-white shadow-lg   rounded-lg overflow-hidden z-50"
                 >
                   {category.subcategories.map((sub, idx) => (
                     <Link
                       key={idx}
                       to={`/shop/${sub.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="block px-4 py-2   hover:bg-gray-100 text-gray-700 font-medium"
+                      className="block px-4 py-2   hover:bg-background-dark text-black hover:text-accent transition-all duration-200 ease-linear font-medium"
                     >
                       {sub}
                     </Link>
