@@ -23,8 +23,6 @@ const FreeShippingOffer = () => {
           <p className="text-xl text-gray-600">Shop now and save!</p>
         </motion.div>
       </section>
-
-
     </>
   );
 };

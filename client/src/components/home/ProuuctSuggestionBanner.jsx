@@ -58,7 +58,7 @@ const ProductSuggestionBanner = () => {
         slidesPerView={1}
         spaceBetween={16}
         modules={[Pagination, Autoplay]}
-        pagination={{ clickable: true }}
+        pagination={{ clickable: true}}
         breakpoints={{
           640: { slidesPerView: 1 },
           768: { slidesPerView: 2 },
@@ -78,7 +78,7 @@ const ProductSuggestionBanner = () => {
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.1 * product.id, type: "tween" }}
               viewport={{ once: true }}
-              className="relative rounded-lg overflow-hidden h-[250px] md:h-[320px] w-full"
+              className="relative rounded-lg overflow-hidden h-[220px] md:h-[250px] w-full"
             >
               {/* Background image with zoom on hover */}
               <motion.div
