@@ -25,8 +25,8 @@ export const HomeSlider = () => {
           <SwiperSlide>
             <img
               src={
-                "https://serviceapi.spicezgold.com/download/1748955897191_NewProject(12).jpg"
-              }
+                "https://serviceapi.spicezgold.com/download/1748955883517_NewProject(6).jpg"
+              } 
               alt=""
               className="rounded-xl  w-full px-4"
             />

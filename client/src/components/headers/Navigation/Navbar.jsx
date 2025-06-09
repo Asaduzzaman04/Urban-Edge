@@ -6,6 +6,7 @@ import { FiChevronDown, FiTruck } from "react-icons/fi";
 import { GiLargeDress, GiSonicShoes, GiLipstick } from "react-icons/gi";
 import { MdSportsSoccer, MdOutlinePhoneIphone } from "react-icons/md";
 import { FiTag, FiBox, FiWatch, FiGift, FiHeart } from "react-icons/fi";
+import { CiShoppingTag } from "react-icons/ci";
 import CategoryPanel from "./CatrgoryPanel";
 
 const categories = [
@@ -66,9 +67,11 @@ const Navbar = () => {
   const [activeCategory, setActiveCategory] = useState(null);
 
   const togglePanel = () => setOpenpanel((prev) => !prev);
-
+  const handleNavigatio = (value) => {
+    setActiveCategory((prev) => (value === prev ? null : value));
+  };
   return (
-    <nav className="flex items-center justify-between px-6 py-3 shadow-sm relative">
+    <nav className="flex items-center justify-between px-6 py-3 shadow-sm relative ">
       {/* Left: Category Panel */}
       <CategoryPanel
         isopenpanel={isopenpanel}
@@ -77,16 +80,24 @@ const Navbar = () => {
       />
 
       {/* Middle: Categories */}
-      <div className="hidden lg:flex items-center gap-4">
+      <div className="hidden lg:flex items-center gap-4 ">
         {categories.map((category, index) => (
           <div
             key={index}
             className="relative"
-            onMouseEnter={() => setActiveCategory(category.name)}
-            onMouseLeave={() => setActiveCategory(null)}
+            onClick={() => handleNavigatio(category.name)}
           >
             <Button
-              endIcon={<FiChevronDown size={14} />}
+              endIcon={
+                <FiChevronDown
+                  size={16}
+                  className={`  ${
+                    activeCategory === category.name
+                      ? "!rotate-180"
+                      : "!rotate-0"
+                  }`}
+                />
+              }
               variant="text"
               sx={{
                 color: "#374151",
@@ -102,19 +113,22 @@ const Navbar = () => {
             <AnimatePresence>
               {activeCategory === category.name && (
                 <motion.div
-                  initial={{ opacity: 0, y: 10, scale : 0 , }}
-                  animate={{ opacity: 1, y: 0, scale  : 1 }}
-                  exit={{ opacity: 0, y: -10 , }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute top-10 left-0 w-sm flex flex-col lg:gap-2  bg-white shadow-lg   rounded-lg overflow-hidden z-50"
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.4, ease: [0, 1, 0.8, 1.01] }}
+                  className="absolute  top-10 left-0 w-sm flex flex-col lg:gap-2  bg-white shadow-lg   rounded-lg overflow-hidden z-50"
                 >
                   {category.subcategories.map((sub, idx) => (
                     <Link
                       key={idx}
                       to={`/shop/${sub.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="block px-4 py-2   hover:bg-background-dark text-black hover:text-accent transition-all duration-200 ease-linear font-medium"
+                      className="block px-4 py-2 hover:bg-background-dark text-black hover:text-accent transition-all duration-200 ease-linear hover:font-bold font-medium"
                     >
-                      {sub}
+                      <span className="flex justify-start items-center gap-2 text-center">
+                        <CiShoppingTag className="text-xl font-bold text-" />{" "}
+                        {sub}
+                      </span>
                     </Link>
                   ))}
                 </motion.div>
