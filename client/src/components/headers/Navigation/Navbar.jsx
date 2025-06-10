@@ -123,12 +123,17 @@ const Navbar = () => {
                     <Link
                       key={idx}
                       to={`/shop/${sub.toLowerCase().replace(/\s+/g, "-")}`}
-                      className="block px-4 py-2 hover:bg-background-dark text-black hover:text-accent transition-all duration-200 ease-linear hover:font-bold font-medium"
+                      className="block px-4 py-2  text-black transition-all duration-200 ease-linear hover:font-bold font-medium"
                     >
-                      <span className="flex justify-start items-center gap-2 text-center">
+                      <motion.span
+                        initial={{ x: 0 }}
+                        whileHover={{ x: 10 }}
+                        transition={{ duration: 0.2 }}
+                        className="flex justify-start items-center gap-2 text-center"
+                      >
                         <CiShoppingTag className="text-xl font-bold text-" />{" "}
                         {sub}
-                      </span>
+                      </motion.span>
                     </Link>
                   ))}
                 </motion.div>

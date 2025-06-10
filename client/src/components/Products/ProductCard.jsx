@@ -1,11 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { AiOutlineZoomIn, AiOutlineHeart } from "react-icons/ai";
-import { BsLink45Deg } from "react-icons/bs";
+import { CgMaximizeAlt } from "react-icons/cg";
+import { FaCodeCompare } from "react-icons/fa6";
+import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
+import { Button } from "@mui/material";
 
 const ProductCard = ({
   discount,
   image,
+  hoverImage,
   brand,
   title,
   rating,
@@ -13,56 +16,66 @@ const ProductCard = ({
   offerPrice,
   onAddToCart,
 }) => {
-  return (
-    <motion.article
-      whileHover={{ scale: 1.02 }}
-      transition={{ duration: 0.3 }}
-      className="rounded-xl overflow-hidden shadow-sm p-3 bg-white w-full h-96 flex flex-col"
-    >
-      <div className="relative group overflow-hidden rounded aspect-[4/5]">
-        {/* Discount Badge */}
-        <span className="absolute top-2 left-2 bg-background-dark text-white text-xs font-semibold px-2 py-1 rounded z-10">
-          {discount}
-        </span>
+  // Framer Motion variants for icon animation
+  const iconVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: i * 0.1 },
+    }),
+  };
 
-        {/* Image */}
-        <motion.img
-          src={image}
-          alt={`${brand} ${title}`}
-          className="w-full h-full object-cover transition duration-300"
-          whileHover={{ scale: 1.05 }}
-        />
+  return (
+    <article className="rounded-xl overflow-hidden shadow-sm bg-white flex flex-col p-4 w-full max-w-sm mx-auto my-4">
+      {/* Image Container */}
+      <motion.div
+        className="relative group overflow-hidden rounded-lg aspect-[4/5] bg-cover bg-center transition-all duration-500"
+        style={{ backgroundImage: `url(${image})` }}
+        whileHover={{
+          backgroundImage: `url(${
+            hoverImage ||
+            "https://images.unsplash.com/photo-1611601322175-ef8ec8c85f01?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          })`,
+          transition: { duration: 0.6, ease: "easeInOut", delay: 0.2 },
+        }}
+      >
+        {/* Discount Badge */}
+        {discount && (
+          <span className="absolute top-2 left-2 bg-background-dark text-accent-hover text-xs font-semibold px-3 py-1 rounded z-10">
+            {discount}
+          </span>
+        )}
 
         {/* Action Icons */}
-        <div className="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition duration-300">
-          <motion.button
-            whileHover={{ scale: 1.2 }}
-            aria-label="Zoom image"
-            className="text-gray-700 text-xl hover:text-red-600 transition rounded-2xl p-2  bg-white"
-          >
-            <AiOutlineZoomIn />
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.2 }}
-            aria-label="Compare product"
-            className="text-gray-700 text-xl hover:text-red-600 transition rounded-2xl p-2 bg-white"
-          >
-            <BsLink45Deg />
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.2 }}
-            aria-label="Add to wishlist"
-            className="text-gray-700 text-xl hover:text-red-600 transition rounded-2xl p-2 bg-white"
-          >
-            <AiOutlineHeart />
-          </motion.button>
+        <div className="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition duration-500">
+          {[<CgMaximizeAlt />, <FaCodeCompare />, <AiOutlineHeart />].map(
+            (Icon, i) => (
+              <motion.button
+                key={i}
+                custom={i}
+                initial="hidden"
+                animate="visible"
+                variants={iconVariants}
+                whileHover={{ scale: 1.2 }}
+                aria-label="Action icon"
+                className="text-gray-800 text-xl hover:text-red-600 transition rounded-full p-2 bg-white shadow-sm"
+              >
+                {Icon}
+              </motion.button>
+            )
+          )}
         </div>
-      </div>
+      </motion.div>
 
-      {/* Content */}
+      {/* Card Content */}
       <div className="mt-4 flex flex-col flex-1 select-text">
-        <h2 className="text-sm font-semibold text-gray-700">{brand}</h2>
-        <h3 className="text-base font-bold text-gray-900 mb-1">{title}</h3>
+        {/* Brand */}
+        <h2 className="text-sm font-medium text-gray-600">{brand}</h2>
+        {/* Title */}
+        <h3 className="text-base font-bold text-gray-900 leading-tight mb-1">
+          {title}
+        </h3>
 
         {/* Rating */}
         <div className="flex items-center mb-2">
@@ -82,14 +95,26 @@ const ProductCard = ({
           <span className="text-red-600 font-bold text-lg">₹{offerPrice}</span>
         </div>
 
-        <button
+        {/* Add to Cart Button */}
+        <Button
+          variant="contained"
           onClick={onAddToCart}
-          className="mt-auto w-full bg-white border border-red-600 text-red-600 font-semibold py-2 rounded hover:bg-red-600 hover:text-white transition"
+          sx={{
+            backgroundColor: "#111827",
+            "&:hover": { backgroundColor: "#1f2937" },
+            textTransform: "none",
+            fontWeight: "bold",
+            display: "flex",
+            alignItems: "center",
+            gap: "8px",
+            paddingY: "8px",
+          }}
         >
-          🛒 ADD TO CART
-        </button>
+          <AiOutlineShoppingCart className="text-2xl text-shadow-accent-hover" />
+          Add to Cart
+        </Button>
       </div>
-    </motion.article>
+    </article>
   );
 };
 
