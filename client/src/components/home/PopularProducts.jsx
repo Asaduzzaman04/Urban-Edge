@@ -100,22 +100,24 @@ const productData = [
 ];
 
 const PopularProducts = () => {
-  const [value, setValue] = useState(0);
+  // const [value, setValue] = useState(0);
 
-  const handleChange = (newValue) => {
-    setValue(newValue);
-  };
+  // const handleChange = (newValue) => {
+  //   setValue(newValue);
+  // };
   return (
     <>
-      <section className="py-5 ">
+      <section className="my-10  flex flex-col justify-center gap-5 md:gap-6   ">
         {/* product tab */}
-        <div className="flex flex-col md:flex-row justify-between items-center ">
+        <div className="flex flex-col md:flex-row  md:justify-between item-start md:items-center text-start  ">
           <div>
-            <h2 className="text-xl  md:text-3xl ">Popular Products</h2>
-            <p>Do not miss the current offers until the end of March.</p>
+            <h2 className="text-xl    ">Popular Products</h2>
+            <p className="text-sm  font-extralight">
+              Do not miss the current offers until the end of March.
+            </p>
           </div>
           {/* tab-list  */}
-          <div className="">
+          {/* <div className="">
             <Box
               sx={{
                 maxWidth: { xs: 320, sm: 480, md: 640 },
@@ -137,26 +139,26 @@ const PopularProducts = () => {
                 <Tab label="Item Seven" />
               </Tabs>
             </Box>
-          </div>
+          </div> */}
         </div>
         {/* product card  */}
-        <div className="">
+        <div className="w-full px-2 border">
           <Swiper
-            slidesPerView={1}
-            spaceBetween={10}
+            slidesPerView={1.2}
+            spaceBetween={12}
             freeMode={true}
             modules={[FreeMode]}
+            noSwiping={true}
             breakpoints={{
-              640: { slidesPerView: 1 },
-              768: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
-              1280: { slidesPerView: 6 },
+              640: { slidesPerView: 1.5 },
+              768: { slidesPerView: 2.5 },
+              1024: { slidesPerView: 4 },
+              1280: { slidesPerView: 4.5 },
             }}
             className="mySwiper"
-              noSwiping={true}
           >
-            {productData.length > 0 &&
-              productData?.map((item) => (
+            {productData?.length > 0 ? (
+              productData.map((item) => (
                 <SwiperSlide key={item.id}>
                   <ProductCard
                     discount={item.discount}
@@ -167,9 +169,14 @@ const PopularProducts = () => {
                     originalPrice={item.originalPrice}
                     offerPrice={item.offerPrice}
                     onAddToCart={() => alert(`${item.title} added to cart!`)}
-                  />{" "}
+                  />
                 </SwiperSlide>
-              ))}
+              ))
+            ) : (
+              <p className="text-center py-4 text-gray-500">
+                No products available.
+              </p>
+            )}
           </Swiper>
         </div>
       </section>

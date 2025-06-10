@@ -106,7 +106,6 @@ const Headers = () => {
           </div>
         </motion.div>
       </div>
-     
     </header>
   );
 };
