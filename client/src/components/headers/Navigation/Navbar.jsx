@@ -119,7 +119,7 @@ const Navbar = () => {
                   transition={{ duration: 0.4, ease: [0, 1, 0.8, 1.01] }}
                   className="absolute  top-10 left-0 w-sm flex flex-col lg:gap-2  bg-white shadow-lg   rounded-lg overflow-hidden z-50"
                 >
-                  {category.subcategories.map((sub, idx) => (
+                  {category?.subcategories?.map((sub, idx) => (
                     <Link
                       key={idx}
                       to={`/shop/${sub.toLowerCase().replace(/\s+/g, "-")}`}
@@ -144,7 +144,7 @@ const Navbar = () => {
       </div>
 
       {/* Right: Delivery Info */}
-      <div className="flex items-center gap-2 text-success font-medium">
+      <div className="text-sm flex items-center gap-2 text-success font-medium">
         <FiTruck className="text-lg" />
         Whole Bangladesh Delivery
       </div>

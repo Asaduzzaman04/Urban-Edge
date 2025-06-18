@@ -1,15 +1,15 @@
-import React from "react";
-import { Routes, Route, BrowserRouter } from "react-router";
-import Root from "../layout/Root";
-import Home from "../pages/Home";
-import Productlist from "../pages/Productlist";
+import React from 'react'
+import { Routes, Route, BrowserRouter } from 'react-router'
+import Root from '../layout/Root'
+import Home from '../pages/Home'
+import Productlist from '../pages/Productlist'
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Root />}>
-          <Route index element={<Home />} /> 
+          <Route index element={<Home />} />
           <Route path="/productlist" element={<Productlist />} />
           {/* <Route path="/help-center" element={<HelpCenter />} /> */}
           {/* <Route path="/order-tracking" element={<OrderTracking />} /> */}
@@ -26,6 +26,6 @@ const Router = () => {
         </Route>
       </Routes>
     </BrowserRouter>
-  );
-};
-export default Router;
+  )
+}
+export default Router

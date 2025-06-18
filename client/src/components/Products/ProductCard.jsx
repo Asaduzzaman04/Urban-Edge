@@ -1,9 +1,9 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { CgMaximizeAlt } from "react-icons/cg";
-import { FaCodeCompare } from "react-icons/fa6";
-import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
-import { Button } from "@mui/material";
+import React from 'react'
+import { motion } from 'framer-motion'
+import { CgMaximizeAlt } from 'react-icons/cg'
+import { FaCodeCompare } from 'react-icons/fa6'
+import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai'
+import { Button } from '@mui/material'
 
 const ProductCard = ({
   discount,
@@ -14,7 +14,7 @@ const ProductCard = ({
   rating,
   originalPrice,
   offerPrice,
-  onAddToCart,
+  onAddToCart
 }) => {
   // Framer Motion variants for icon animation
   const iconVariants = {
@@ -22,9 +22,9 @@ const ProductCard = ({
     visible: (i) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: i * 0.1 },
-    }),
-  };
+      transition: { delay: i * 0.1 }
+    })
+  }
 
   return (
     <article className="rounded-xl overflow-hidden shadow-sm bg-white flex flex-col p-4 w-full max-w-sm mx-auto my-4">
@@ -35,9 +35,9 @@ const ProductCard = ({
         whileHover={{
           backgroundImage: `url(${
             hoverImage ||
-            "https://images.unsplash.com/photo-1611601322175-ef8ec8c85f01?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            'https://images.unsplash.com/photo-1611601322175-ef8ec8c85f01?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
           })`,
-          transition: { duration: 0.6, ease: "easeInOut", delay: 0.2 },
+          transition: { duration: 0.6, ease: 'easeInOut', delay: 0.2 }
         }}
       >
         {/* Discount Badge */}
@@ -49,22 +49,24 @@ const ProductCard = ({
 
         {/* Action Icons */}
         <div className="absolute top-3 right-3 flex flex-col space-y-2 opacity-0 group-hover:opacity-100 transition duration-500">
-          {[<CgMaximizeAlt />, <FaCodeCompare />, <AiOutlineHeart />].map(
-            (Icon, i) => (
-              <motion.button
-                key={i}
-                custom={i}
-                initial="hidden"
-                animate="visible"
-                variants={iconVariants}
-                whileHover={{ scale: 1.2 }}
-                aria-label="Action icon"
-                className="text-gray-800 text-xl hover:text-red-600 transition rounded-full p-2 bg-white shadow-sm"
-              >
-                {Icon}
-              </motion.button>
-            )
-          )}
+          {[
+            { icon: <CgMaximizeAlt />, key: 'maximize' },
+            { icon: <FaCodeCompare />, key: 'compare' },
+            { icon: <AiOutlineHeart />, key: 'heart' }
+          ].map(({ icon, key }, i) => (
+            <motion.button
+              key={key}
+              custom={i}
+              initial="hidden"
+              animate="visible"
+              variants={iconVariants}
+              whileHover={{ scale: 1.2 }}
+              aria-label="Action icon"
+              className="text-gray-800 text-xl hover:text-red-600 transition rounded-full p-2 bg-white shadow-sm"
+            >
+              {icon}
+            </motion.button>
+          ))}
         </div>
       </motion.div>
 
@@ -82,7 +84,7 @@ const ProductCard = ({
           {Array.from({ length: 5 }).map((_, i) => (
             <span
               key={i}
-              className={i < rating ? "text-yellow-500" : "text-gray-300"}
+              className={i < rating ? 'text-yellow-500' : 'text-gray-300'}
             >
               ★
             </span>
@@ -100,14 +102,14 @@ const ProductCard = ({
           variant="contained"
           onClick={onAddToCart}
           sx={{
-            backgroundColor: "#111827",
-            "&:hover": { backgroundColor: "#1f2937" },
-            textTransform: "none",
-            fontWeight: "bold",
-            display: "flex",
-            alignItems: "center",
-            gap: "8px",
-            paddingY: "8px",
+            backgroundColor: '#111827',
+            '&:hover': { backgroundColor: '#1f2937' },
+            textTransform: 'none',
+            fontWeight: 'bold',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            paddingY: '8px'
           }}
         >
           <AiOutlineShoppingCart className="text-2xl text-shadow-accent-hover" />
@@ -115,7 +117,7 @@ const ProductCard = ({
         </Button>
       </div>
     </article>
-  );
-};
+  )
+}
 
-export default ProductCard;
+export default ProductCard
