@@ -20,7 +20,7 @@ const CategoryPanel = ({ isopenpanel, togglePanel, categories }) => {
 
   const DrawerList = (
     <Box sx={{ width: 300 }} role="presentation">
-      <h3 className="text-xl font-semibold px-4 pt-4 pb-2">
+      <h3 className="text-sm md:text-xl font-semibold px-2 md:px-4 pt-4 pb-2">
         Search by category
       </h3>
       <Divider />
@@ -37,7 +37,7 @@ const CategoryPanel = ({ isopenpanel, togglePanel, categories }) => {
                 ) : (
                   <FiChevronDown />
                 )}
-              </ListItemButton>
+              </ListItemButton> 
             </ListItem>
 
             <Collapse
@@ -84,8 +84,6 @@ const CategoryPanel = ({ isopenpanel, togglePanel, categories }) => {
         onClick={togglePanel}
         className="!capitalize !border-gray-500 "
         color="text"
-  
-        
       >
         Shop by Category
       </Button>
