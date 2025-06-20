@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import { Link } from "react-router";
 import { Button } from "@mui/material";
@@ -71,6 +72,7 @@ const Navbar = () => {
     setActiveCategory((prev) => (value === prev ? null : value));
   };
   return (
+    // eslint-disable-next-line react/react-in-jsx-scope
     <nav className="flex items-center justify-between px-6 py-3 shadow-sm relative ">
       {/* Left: Category Panel */}
       <CategoryPanel
@@ -84,7 +86,7 @@ const Navbar = () => {
         {categories.map((category, index) => (
           <div
             key={index}
-            className="relative"
+            className="relative "
             onClick={() => handleNavigatio(category.name)}
           >
             <Button
@@ -103,7 +105,7 @@ const Navbar = () => {
                 color: "#374151",
                 fontWeight: 600,
                 textTransform: "none",
-                "&:hover": { backgroundColor: "transparent" },
+                "&:hover": { backgroundColor: "#000000", color: "#FFFFFF" },
               }}
             >
               {category.name}

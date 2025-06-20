@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 
 const Search = () => {
   return (
-    <div className="  bg-accent flex items-center justify-center gap-2 px-3 py-1 rounded w-full md:w-auto">
+    <div className="  bg-accent-hover flex items-center justify-center gap-2 px-3 py-1 rounded w-full md:w-auto">
       <input
         type="text"
         placeholder="Search for products..."

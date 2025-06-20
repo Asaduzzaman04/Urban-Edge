@@ -1,64 +1,35 @@
-import React, { useState } from "react";
-import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
-import Button from "@mui/material/Button";
-import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
-import Collapse from "@mui/material/Collapse";
-import { FiChevronDown, FiChevronUp, FiMenu, FiTag } from "react-icons/fi";
-import { Typography } from "@mui/material";
+import React, { useState } from 'react'
+import Box from '@mui/material/Box'
+import Drawer from '@mui/material/Drawer'
+import Button from '@mui/material/Button'
+import List from '@mui/material/List'
+import Divider from '@mui/material/Divider'
+import { FiMenu } from 'react-icons/fi'
+import CategoryCollapseItem from './CategoryCollapseItem'
 
 const CategoryPanel = ({ isopenpanel, togglePanel, categories }) => {
-  const [openCategory, setOpenCategory] = useState(null);
+  const [openCategory, setOpenCategory] = useState(null)
 
   const handleCategoryClick = (name) => {
-    setOpenCategory((prev) => (prev === name ? null : name));
-  };
+    setOpenCategory((prev) => (prev === name ? null : name))
+  }
 
   const DrawerList = (
     <Box sx={{ width: 300 }} role="presentation">
-      <h3 className="text-sm md:text-xl font-semibold px-2 md:px-4 pt-4 pb-2">
+      <h3 className="text-sm md:text-xl font-semibold px-2 md:px-4 pt-4 pb-2 font-Montserrat">
         Search by category
       </h3>
       <Divider />
 
       <List>
         {categories.map((item) => (
-          <div key={item.name}>
-            <ListItem disablePadding>
-              <ListItemButton onClick={() => handleCategoryClick(item.name)}>
-                <span className="mr-2 text-black font-bold">{item.icon}</span>
-                <ListItemText primary={item.name} />
-                {openCategory === item.name ? (
-                  <FiChevronUp />
-                ) : (
-                  <FiChevronDown />
-                )}
-              </ListItemButton> 
-            </ListItem>
-
-            <Collapse
-              in={openCategory === item.name}
-              timeout="auto"
-              unmountOnExit
-            >
-              <List component="div" disablePadding>
-                {item.subcategories.map((sub) => (
-                  <ListItemButton
-                    onClick={togglePanel}
-                    key={sub}
-                    sx={{ pl: 6 }}
-                  >
-                    <FiTag className="mr-2 text-sm" />
-                    <ListItemText primary={sub} />
-                  </ListItemButton>
-                ))}
-              </List>
-            </Collapse>
-          </div>
+          <CategoryCollapseItem
+            key={item.name}
+            item={item}
+            openCategory={openCategory}
+            handleCategoryClick={handleCategoryClick}
+            togglePanel={togglePanel}
+          />
         ))}
       </List>
 
@@ -69,12 +40,13 @@ const CategoryPanel = ({ isopenpanel, togglePanel, categories }) => {
           color="primary"
           onClick={togglePanel}
           fullWidth
+          sx={{ fontFamily: 'Montserrat, sans-serif' }}
         >
           Close
         </Button>
       </div>
     </Box>
-  );
+  )
 
   return (
     <>
@@ -82,18 +54,18 @@ const CategoryPanel = ({ isopenpanel, togglePanel, categories }) => {
         startIcon={<FiMenu />}
         variant="outlined"
         onClick={togglePanel}
-        className="!capitalize !border-gray-500 "
+        className="!capitalize !border-gray-500"
         color="text"
+        sx={{ fontFamily: 'Montserrat, sans-serif' }}
       >
         Shop by Category
       </Button>
-      <Typography variant="h6">
-        <Drawer open={isopenpanel} onClose={togglePanel}>
-          {DrawerList}
-        </Drawer>
-      </Typography>
-    </>
-  );
-};
 
-export default CategoryPanel;
+      <Drawer open={isopenpanel} onClose={togglePanel}>
+        {DrawerList}
+      </Drawer>
+    </>
+  )
+}
+
+export default CategoryPanel

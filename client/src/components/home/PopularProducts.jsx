@@ -142,7 +142,7 @@ const PopularProducts = () => {
           </div> */}
         </div>
         {/* product card  */}
-        <div className="w-full px-2 border">
+        <div className="w-full px-2 ">
           <Swiper
             slidesPerView={1.2}
             spaceBetween={12}

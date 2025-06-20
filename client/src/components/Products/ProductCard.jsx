@@ -30,14 +30,16 @@ const ProductCard = ({
     <article className="rounded-xl overflow-hidden shadow-sm bg-white flex flex-col p-4 w-full max-w-sm mx-auto my-4">
       {/* Image Container */}
       <motion.div
-        className="relative group overflow-hidden rounded-lg aspect-[4/5] bg-cover bg-center transition-all duration-500"
+        className="relative overflow-hidden group rounded-lg aspect-[4/5] bg-cover bg-center transition-all duration-500"
         style={{ backgroundImage: `url(${image})` }}
         whileHover={{
           backgroundImage: `url(${
             hoverImage ||
             'https://images.unsplash.com/photo-1611601322175-ef8ec8c85f01?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
           })`,
-          transition: { duration: 0.6, ease: 'easeInOut', delay: 0.2 }
+          transition: { duration: 0.6, ease: 'easeInOut', delay: 0.2 },
+         
+          boxShadow: '0 10px 20px rgba(0, 0, 0, 0.1)'
         }}
       >
         {/* Discount Badge */}
