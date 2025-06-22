@@ -30,7 +30,7 @@ const ProductCard = ({
     <article className="rounded-xl overflow-hidden shadow-sm bg-white flex flex-col p-4 w-full max-w-sm mx-auto my-4">
       {/* Image Container */}
       <motion.div
-        className="relative overflow-hidden group rounded-lg aspect-[4/5] bg-cover bg-center transition-all duration-500"
+        className="rounded-br-2xl rounded-bl-2xl  relative overflow-hidden group rounded-lg aspect-[4/5] bg-cover bg-center transition-all duration-500"
         style={{ backgroundImage: `url(${image})` }}
         whileHover={{
           backgroundImage: `url(${
@@ -73,7 +73,7 @@ const ProductCard = ({
       </motion.div>
 
       {/* Card Content */}
-      <div className="mt-4 flex flex-col flex-1 select-text">
+      <div className="  mt-4 flex flex-col flex-1 select-text">
         {/* Brand */}
         <h2 className="text-sm font-medium text-gray-600">{brand}</h2>
         {/* Title */}
