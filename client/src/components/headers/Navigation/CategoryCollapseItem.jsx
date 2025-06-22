@@ -38,36 +38,35 @@ const CategoryCollapseItem = ({
       {/* Subcategories */}
       <Collapse in={openCategory === item.name} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          {item.subcategories.map((sub) => {
-          
-            return (
-              <ListItem key={sub} disablePadding>
-                <ListItemButton sx={{ pl: 6 }}>
-                  {/* Conditional Checkbox */}
-                  {showCheckbox ? (
-                    <Checkbox
-                      size="small"
-                      edge="end"
-                  
-                      onChange={() => handleCheckboxChange(sub)}
-                      className="!mr-2"
-                      inputProps={{ 'aria-label': `select ${sub}` }}
-                    />
-                  ) : (
-                    <FiTag className="mr-2" />
-                  )}
-                  {/* Subcategory Text */}
-                  <ListItemText
-                    primary={
-                      <Typography sx={{ fontFamily: 'Montserrat, sans-serif' }}>
-                        {sub}
-                      </Typography>
-                    }
+          {item.subcategories.map((sub) => (
+            <ListItem key={sub} disablePadding>
+              {/* Make the entire ListItemButton clickable */}
+              <ListItemButton
+                sx={{ pl: 6 }}
+                onClick={() => handleCheckboxChange(sub)}
+              >
+                {showCheckbox ? (
+                  <Checkbox
+                    size="small"
+                    edge="start"
+                    checked={selectedSubcategories.includes(sub)}
+                    className="!mr-2"
+                    onClick={(e) => e.stopPropagation()}
+                    onChange={() => handleCheckboxChange(sub)}
                   />
-                </ListItemButton>
-              </ListItem>
-            )
-          })}
+                ) : (
+                  <FiTag className="mr-2" />
+                )}
+                <ListItemText
+                  primary={
+                    <Typography sx={{ fontFamily: 'Montserrat, sans-serif' }}>
+                      {sub}
+                    </Typography>
+                  }
+                />
+              </ListItemButton>
+            </ListItem>
+          ))}
         </List>
       </Collapse>
     </div>

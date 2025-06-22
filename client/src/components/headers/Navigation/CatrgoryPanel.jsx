@@ -7,6 +7,7 @@ import Divider from '@mui/material/Divider'
 import { FiMenu } from 'react-icons/fi'
 import CategoryCollapseItem from './CategoryCollapseItem'
 
+
 const CategoryPanel = ({ isopenpanel, togglePanel, categories }) => {
   const [openCategory, setOpenCategory] = useState(null)
 
