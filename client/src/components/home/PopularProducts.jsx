@@ -8,7 +8,7 @@ import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import { FreeMode } from "swiper/modules";
 import ProductCard from "../Products/ProductCard";
-const productData = [
+ export const productData = [
   {
     id: 1,
     discount: "10%",
