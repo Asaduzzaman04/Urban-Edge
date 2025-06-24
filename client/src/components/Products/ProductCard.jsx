@@ -28,7 +28,7 @@ const ProductCard = ({
 
   return (
     <article
-      className={`rounded-xl overflow-hidden shadow-sm bg-white p-4 w-full ${
+      className={`rounded-xl  overflow-hidden shadow-sm bg-white p-4 w-full ${
         columns === 1 ? 'flex gap-4 items-center ' : 'flex flex-col'
       }`}
     >
@@ -36,7 +36,7 @@ const ProductCard = ({
       <motion.div
         className={`relative overflow-hidden group rounded-lg ${
           columns === 1
-            ? 'w-32 h-32 flex-shrink-0'
+            ? 'w-32 h-32 flex-shrink-0 '
             : 'aspect-[4/5] bg-cover bg-center'
         } transition-all duration-500`}
         style={{ backgroundImage: `url(${image})` }}
@@ -82,14 +82,16 @@ const ProductCard = ({
       {/* Card Content */}
       <div
         className={`mt-4 flex flex-col flex-1 select-text ${
-          columns === 1 ? '' : 'text-center'
+          columns === 1 ? '' : 'text-start gap-2'
         }`}
       >
-        <h2 className="text-sm font-medium text-gray-600">{brand}</h2>
+        <h2 className="text-sm font-medium bg-gray-200 text-background-dark w-fit px-1.5 py-0.5 rounded-4xl">
+          {brand}
+        </h2>
         <h3 className="text-base font-bold text-gray-900 leading-tight mb-1">
           {title}
         </h3>
-        <div className="flex items-center mb-2 justify-center">
+        <div className="flex items-start  justify-start">
           {Array.from({ length: 5 }).map((_, i) => (
             <span
               key={i}
@@ -99,7 +101,7 @@ const ProductCard = ({
             </span>
           ))}
         </div>
-        <div className="flex items-center gap-2 mb-4 justify-center">
+        <div className="flex items-center gap-2 mb-4 justify-around">
           <del className="text-gray-400 text-sm">₹{originalPrice}</del>
           <span className="text-red-600 font-bold text-lg">₹{offerPrice}</span>
         </div>
