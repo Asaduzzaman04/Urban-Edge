@@ -1,18 +1,27 @@
 import React, { useState } from 'react'
-import { TiThMenu } from 'react-icons/ti'
-import { IoGridSharp } from 'react-icons/io5'
+import GridviewBar from './GridviewBar'
+import ProductCard from './../ProductCard'
 
 const Productsitem = () => {
-  const [gridView, setGridView] = useState(true)
-  const toggleView = () => {
-    setGridView(!gridView)
-  }
+  const [columns, setColumns] = useState(4)
 
   return (
     <>
-      {/* grid button for product list to show products in grid view */}
-      <section></section>
-      <section></section>
+      <section>
+        <GridviewBar
+          columns={columns}
+          setColumns={setColumns}
+          totalProducts={8}
+        />
+      </section>
+
+      <section
+        className={` sm:flex flex-col md:grid md:grid-cols-${columns} gap-4 p-4`}
+      >
+        {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
+          <ProductCard key={item} columns={columns} />
+        ))}
+      </section>
     </>
   )
 }
