@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Sidebar from '../components/Products/sidebar/Sidebar'
+import Productsitem from '../components/Products/productlist/Productsitem'
 
 const Productlist = () => {
   return (
@@ -12,7 +13,7 @@ const Productlist = () => {
           </div>
           <div className="col-span-3 row-span-2 border">
             {/* product-list  */}
-            product list
+            <Productsitem />
           </div>
         </div>
       </section>
