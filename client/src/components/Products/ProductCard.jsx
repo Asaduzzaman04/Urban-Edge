@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { motion } from 'framer-motion'
 import { CgMaximizeAlt } from 'react-icons/cg'
 import { FaCodeCompare } from 'react-icons/fa6'
 import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai'
 import { Button } from '@mui/material'
+import { Link } from 'react-router'
 
 const ProductCard = ({
   discount,
@@ -88,9 +89,11 @@ const ProductCard = ({
         <h2 className="text-sm font-medium bg-gray-200 text-background-dark w-fit px-1.5 py-0.5 rounded-4xl">
           {brand}
         </h2>
-        <h3 className="text-base font-bold text-gray-900 leading-tight mb-1">
-          {title}
-        </h3>
+        <Link to={`/product/${title}`}>
+          <h3 className=" hover:text-warning  transition-colors text-base font-bold text-gray-900 leading-tight mb-1">
+            {title}
+          </h3>
+        </Link>
         <div className="flex items-start  justify-start">
           {Array.from({ length: 5 }).map((_, i) => (
             <span
@@ -127,4 +130,4 @@ const ProductCard = ({
   )
 }
 
-export default ProductCard
+export default memo(ProductCard)

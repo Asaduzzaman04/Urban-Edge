@@ -3,6 +3,7 @@ import { Routes, Route, BrowserRouter } from 'react-router'
 import Root from '../layout/Root'
 import Home from '../pages/Home'
 import Productlist from '../pages/Productlist'
+import ProductDetails from '../components/Products/productDetails/ProductDetails'
 
 const Router = () => {
   return (
@@ -11,7 +12,7 @@ const Router = () => {
         <Route path="/" element={<Root />}>
           <Route index element={<Home />} />
           <Route path="/productlist" element={<Productlist />} />
-          <Route path="/productdetails/:id" element={<> <h1>hello product detils</h1></>} />
+          <Route path="/product/:id" element={<ProductDetails />} />
 
           {/* <Route path="/help-center" element={<HelpCenter />} /> */}
           {/* <Route path="/order-tracking" element={<OrderTracking />} /> */}

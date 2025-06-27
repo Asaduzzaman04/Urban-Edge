@@ -75,10 +75,6 @@ const BigDealsBanners = () => {
               nextEl: ".custom-next",
               prevEl: ".custom-prev",
             }}
-            chuk
-            dia
-            ki
-            korbi
             autoplay={{
               delay: 2500,
               disableOnInteraction: false,
