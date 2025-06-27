@@ -1,10 +1,10 @@
-import React from "react";
-import { HomeSlider } from "../components/home/HomeSlider";
-import ProductCategoryHome from "../components/home/ProductCategoryHome";
-import FreeShippingOffer from "../components/home/FreeShippingOffer";
-import ProuuctSuggestionBanner from "../components/home/ProuuctSuggestionBanner";
-import BigDealsBanners from "../components/home/BigDealsBanners";
-import PopularProducts from "../components/home/PopularProducts";
+import React from 'react'
+import { HomeSlider } from '../components/home/HomeSlider'
+import ProductCategoryHome from '../components/home/ProductCategoryHome'
+import FreeShippingOffer from '../components/home/FreeShippingOffer'
+import ProuuctSuggestionBanner from '../components/home/ProuuctSuggestionBanner'
+import BigDealsBanners from '../components/home/BigDealsBanners'
+import PopularProducts from '../components/home/PopularProducts'
 
 const Home = () => {
   return (
@@ -34,7 +34,7 @@ const Home = () => {
         <ProuuctSuggestionBanner />
       </section>
     </main>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

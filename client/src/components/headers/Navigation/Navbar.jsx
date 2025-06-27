@@ -116,7 +116,7 @@ const Navbar = () => {
               {activeCategory === category.name && (
                 <motion.div
                   initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
+                  animate={{ opacity: 1, height:"auto" , }}
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.4, ease: [0, 1, 0.8, 1.01] }}
                   className="absolute  top-10 left-0 w-sm flex flex-col lg:gap-2  bg-white shadow-lg   rounded-lg overflow-hidden z-50"

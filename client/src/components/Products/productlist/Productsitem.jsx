@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo, useCallback } from 'react'
 import GridviewBar from './GridviewBar'
 import ProductCard from './../ProductCard'
 import { productData } from '../../home/PopularProducts'
@@ -10,7 +10,6 @@ const Productsitem = () => {
     setColumns(newColumns)
   }
 
-  // Map columns value to valid Tailwind class
   const gridClass = {
     1: 'md:grid-cols-1',
     2: 'md:grid-cols-2',
@@ -18,21 +17,28 @@ const Productsitem = () => {
     4: 'md:grid-cols-4'
   }
 
+  const gridClassValue = useMemo(() => gridClass[columns], [columns])
+
+  const handleAddToCart = useCallback((title) => {
+    alert(`${title} added to cart!`)
+  }, [])
+
   return (
     <>
       <section>
         <GridviewBar
           columns={columns}
           handlegridChange={handlegridChange}
-          totalProducts={8}
+          totalProducts={productData.length}
         />
       </section>
 
       <section
-        className={`sm:flex sm:flex-col md:grid ${gridClass[columns]} gap-4 p-4`}
+        className={`sm:flex sm:flex-col md:grid ${gridClassValue} gap-4 p-4`}
       >
         {productData.map((item) => (
           <ProductCard
+            key={item.title}
             discount={item.discount}
             image={item.image}
             brand={item.brand}
@@ -40,8 +46,7 @@ const Productsitem = () => {
             rating={item.rating}
             originalPrice={item.originalPrice}
             offerPrice={item.offerPrice}
-            onAddToCart={() => alert(`${item.title} added to cart!`)}
-            key={item}
+            onAddToCart={() => handleAddToCart(item.title)}
             columns={columns}
           />
         ))}

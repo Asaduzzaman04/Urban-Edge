@@ -58,7 +58,7 @@ const ProductCategoryHome = () => {
     setSelectedCategory(categoryName)
   }
   return (
-    <section className="py-6 mx-auto">
+    <section className="py-6 mx-auto ">
       <Swiper
         slidesPerView={3}
         spaceBetween={10}
@@ -68,7 +68,7 @@ const ProductCategoryHome = () => {
           1024: { slidesPerView: 6, spaceBetween: 10 }
         }}
         modules={[Pagination]}
-        className="mySwiper"
+        className=""
       >
         {categories.length > 0 &&
           categories.map((category, index) => (
@@ -77,7 +77,7 @@ const ProductCategoryHome = () => {
                 to={category.link}
                 onClick={() => handleSelectCategory(category.name)}
               >
-                <div className="bg-white rounded-xl p-4  flex flex-col items-center cursor-pointer hover:shadow-lg  justify-center mx-auto">
+                <div className="bg-white  rounded-xl p-4  flex flex-col items-center cursor-pointer hover:shadow-lg  justify-center mx-auto">
                   <motion.img
                     whileHover={{ scale: 1.1 }}
                     transition={{ duration: 0.3 }}

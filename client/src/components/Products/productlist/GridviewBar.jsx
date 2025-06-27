@@ -22,11 +22,8 @@ const GridviewBar = ({
   totalProducts,
   handleSortChange
 }) => {
-
-
-  const handleSortSelect  = (value, lavel) =>{
-    console.log(value);
-    console.log(lavel);
+  const handleSortSelect = (value) => {
+    console.log(value)
   }
   return (
     <div className="flex items-center justify-between bg-accent/50 p-3 rounded">
