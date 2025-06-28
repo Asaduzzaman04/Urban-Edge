@@ -82,7 +82,7 @@ const ProductGallery = ({ images }) => {
       </div>
 
       {/* Main Image with Zoom */}
-      <div className="flex-1 overflow-hidden rounded-xl border">
+      <div className="flex-1 l overflow-hidden rounded-xl border">
         <InnerImageZoom
           src={activeImage}
           zoomSrc={activeImage}
@@ -90,7 +90,7 @@ const ProductGallery = ({ images }) => {
           zoomType="hover"
           moveType="pan"
           zoomScale={1.5}
-          className="w-full h-[400px] md:h-[500px] object-cover"
+          className="w-full h-[600px] md:h-[700px] object-fill"
         />
       </div>
     </motion.div>
