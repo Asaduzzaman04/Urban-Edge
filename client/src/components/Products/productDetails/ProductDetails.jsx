@@ -11,10 +11,11 @@ const ProductDetails = () => {
 
   useEffect(() => {
     const dummyProduct = {
-      id,
+      id: 1,
       name: 'Embroidered Satin Saree',
+      brand: 'Urban Loom',
       price: 5500,
-      oldPrice: 4795,
+      oldPrice: 6795,
       stock: 4473,
       description:
         'This luxurious embroidered satin saree features vibrant floral motifs and a soft satin finish. Perfect for weddings, parties, and festive occasions.',
@@ -25,9 +26,42 @@ const ProductDetails = () => {
         'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=500&auto=format&fit=crop&q=60'
       ],
       reviews: [
-        'Beautiful material and embroidery!',
-        'Loved it — exactly as shown in pictures.',
-        'Super fast delivery and great quality.'
+        {
+          username: 'Alice',
+          rating: 5,
+          text: 'Beautiful material and embroidery!',
+          date: '2025-06-28T12:30:00Z'
+        },
+        {
+          username: 'John',
+          rating: 4,
+          text: 'Loved it — exactly as shown in pictures.',
+          date: '2025-06-28T12:30:00Z'
+        },
+        {
+          username: 'Maria',
+          rating: 5,
+          text: 'Super fast delivery and great quality.',
+          date: '2025-06-28T12:30:00Z'
+        },
+        {
+          username: 'Maria',
+          rating: 5,
+          text: 'Super fast delivery and great quality.',
+          date: '2025-06-28T12:30:00Z'
+        },
+        {
+          username: 'Maria',
+          rating: 5,
+          text: 'Super fast delivery and great quality.',
+          date: '2025-06-28T12:30:00Z'
+        },
+        {
+          username: 'Maria',
+          rating: 5,
+          text: 'Super fast delivery and great quality.',
+          date: '2025-06-28T12:30:00Z'
+        }
       ],
       relatedProducts: [
         {
@@ -46,7 +80,11 @@ const ProductDetails = () => {
           name: 'Casual Cotton Saree',
           image: 'https://source.unsplash.com/random/300x400?cotton-dress'
         }
-      ]
+      ],
+      estimatedDeliveryDays: '2-3 Days',
+      shipping: 'Free Shipping',
+      category: 'Women > Ethnic Wear > Sarees',
+      sku: 'SR-EMB-URBAN-001'
     }
 
     setTimeout(() => {
